@@ -1,0 +1,58 @@
+一、分层明确
+	1.Config：所有的配置用于存放Springboot相关的配置类，包括启动类。
+	2.Controller：请求入口所有请求的入口，前后端交互的入口。
+	3.Service：逻辑层负责所有的业务逻辑
+	4.Mapper层：持久层或叫Dao，持久层，负责java和数据库交互。包括interface和xml两类文件。
+	5.Domain：表映射实体或叫Po，用一个java类来映射数据库表，类名相当于表名，类的属性表示表的字段。
+	6.Dto：数据传输对象数据传输对象（Data Transfer Object），用于前后端数据交互。
+
+二、日式框架使用Slf4j 以及@Slf4j 注解
+
+三、访问数据通过mybaitplus 工具访问
+
+四、建议使用idea 开发，提交代码前optimize import、cleanup code
+
+五、存放redis key= 项目名:模块名:自定义key
+
+六、Domain 和 Dto 按照需要，通过lombok 工具修饰
+
+七、后台管理 接口对外访问 接口 建议使用jeecg-boot 前端查询规范
+
+八、重要、常用的字符串 常量，固定化，禁止魔数出现
+
+九、http 访问工具，retrofit-spring-boot-starter 以及 cn.hutool.http.HttpUtil
+
+十、数据库表名，字段名 小写，下滑线连接
+
+十一、判断为空 避免==null
+	对象判断空：Objects.isNull()
+    字符串判断为空：StringUtils.isBlank()
+    			  StringUtils.isEmpty()
+    集合判断为空：CollectionUtils.isEmpty()
+
+十二、建议统一返回码，以及放回对象 Result
+
+十三、controller 捕获异常 @RestControllerAdvice
+
+十四、对外的接口 建议使用 swagger，项目文档相关信息，要在项目下留下信息，便于查找
+
+十五、controller 层 所以的返回对象，参数、可以序列化，为后面日志规范做准备
+
+十六、使用mybaits 尽量避免写sql 硬编码，建议通过mybaits 提供的工具类实现
+
+十七、对于不使用的接口，通过 @Deprecated 修饰，并解释原因和替代产品
+
+十八、编码完成后，建议两人 code review ，提高代码质量
+
+十九、项目代码，尽可能使用开源资源，提高代码质量，以及开发效率
+
+二十、代码过程，避免new 对象，可以通过builder 工具类Maps.newHashMap()解决
+
+常见的工具类
+- hutool：功能类集合
+- apache：
+- retrofit-spring-boot-starter：http 工具包
+- Guava：google 工具类
+- lombok：对pojo 工具类的加工
+- Mybaitplus:简化sql操作
+- jeecg-boot：后台管理脚手架、以及后端查询规范
